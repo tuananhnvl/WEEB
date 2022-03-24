@@ -1,0 +1,41 @@
+.Footer {
+    background-color: var( --bg-color-footer);
+    padding: 1rem 0;
+}
+.Icon-Footer {
+    color: white;
+    font-size: 1.7rem;
+    margin-left:1.5rem;
+}
+.Lang-Icon {
+    display: flex;
+    align-items: center;
+    padding:0;
+   justify-content: center;
+  
+}
+.Lang-Icon > p {
+    margin:0;
+    color:white;
+    margin:0 1rem;
+}
+.FooterDetail {
+    color:white;
+    width: 75%;
+}
+.FooterDetail > h3 {
+margin: 1rem 0;
+font-family: var( --font-family);
+}
+.FooterDetail>ul>li {
+    margin-bottom: 1rem;
+}
+.safg3 {
+    padding: 0.5rem 0;
+}
+
+@media (max-width:992px) {
+    .d32r {
+        flex-wrap: wrap !important;
+    }
+}

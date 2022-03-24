@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+:root {
+  --black :RGB(10, 10, 10);
+  --text-white : RGB(225,225,225);
+  --fz-text-btn: 1.2rem;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --bg-color-footer:#272727;
+  --gray-heading: #828282;
+}
+
+
+h2 {
+  font-size: 3rem;
+  margin: 3rem 0;
+  font-weight: 600;
+  font-family:var(--font-family);
+ 
+}
+.BorderHeadingBottom {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+
+  width: fit-content;
+}
+.BtnContactOnMobie {
+  display: none;
+  
+}
+.MARGINSECTION {
+  margin-bottom:4rem;
+}
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+ 
+}
+@media (max-width:768px){
+  h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  h3{
+    font-size: 1.5rem;
+  }
+  p,li {
+    font-size: 0.8rem;
+  }
+  .BtnContactOnMobie {
+    display: block!important;
+    width: 100%;
+    text-align: center;
+  }
+  .MARGINSECTION {
+    margin-bottom:3rem;
+  }
+}
+
+

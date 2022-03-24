@@ -1,0 +1,77 @@
+@media (max-width:768px) {
+  .Navbar_Detail_Deskop {
+    display:none !important;
+  }
+  .Navbar_Detail_Mobie {
+    width:60%;
+    display:flex !important;
+    height: auto;
+    justify-content:flex-end;
+  }
+}
+.Navbar {
+  margin: 0;
+  padding: 0;
+  height: 12vh;
+
+}
+.Navbardetail {
+  max-width:1200px;
+  height:100%;
+  margin: 0 auto;
+  display:flex;
+  /* justify-content:space-between; */
+}
+.Navbar_Logo{
+  width:40%;
+  height: auto;
+  display:flex;
+ 
+}
+.Navbar_Detail_Deskop {
+  width:60%;
+  height: auto;
+  display:flex;
+ 
+}
+.Navbar_Detail_Mobie {
+  display:none;
+}
+.Navbar_Detail_Mobie >a {
+margin-top: auto;
+margin-bottom: auto;
+margin-right: 2rem;
+}
+.LogoCompanyWeebNav {
+  max-width:100%;
+  height: 10vh;
+}
+
+.MarginCenterProp {
+  width:100%;
+  margin:auto;
+}
+.NavbarMenu {
+  display:flex;
+  justify-content:space-between;
+}
+.ListItemMenu {
+  display:flex;
+  padding:0;
+  list-style-type:none;
+}
+.ItemMenu {
+  display:block;
+  text-align: center;
+  padding: 0 2rem;
+  text-decoration:none;
+  font-weight:bold;
+}
+.ButtonContacttNavMenu {
+  background-color:var(--black);
+  border-radius: 5px;
+  color: var(--text-white);
+  font-size: var(--fz-text-btn);
+  font-weight:bold;
+}
+ 
