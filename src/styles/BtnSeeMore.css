@@ -22,7 +22,7 @@ top: 50%;
     animation-name: example;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
-    transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);;
+    transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
   }
   
   @keyframes example {

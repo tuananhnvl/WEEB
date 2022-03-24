@@ -331,6 +331,7 @@ function Home() {
                     </linearGradient>
                   </defs>
                 </svg>
+                
               </div>
             </div>
             <div className="col-lg-50 BannerItem">
