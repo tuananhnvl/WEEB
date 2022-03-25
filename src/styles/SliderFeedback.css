@@ -13,7 +13,7 @@
 }
 .swiper-slide.D678 {
  margin:auto;
-
+  width:460px !important;
   height: 300px !important;
   background-color: #C4C4C4;
     display: flex;

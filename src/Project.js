@@ -1,8 +1,6 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
+import Footer from "./component/Footer.js";
+
 import Masonry from '@mui/lab/Masonry';
 
 import Card from '@mui/material/Card';
@@ -111,7 +109,7 @@ function Project() {
                     <img
                       src={`${item.img}?w=462&auto=format`}
                       srcSet={`${item.img}?w=462&auto=format&dpr=2 2x`}
-                    
+                      alt="Pic-demo-map-from consatdata"
                       loading="lazy"
                       style={{
                         
@@ -139,27 +137,8 @@ function Project() {
             </Card>
           ))}
         </Masonry>
-        <Masonry columns={3} spacing={2}>
-          {itemData.map((item, index) => (
-            <div key={index}>
-
-              <img
-                src={`${item.img}?w=162&auto=format`}
-                srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`}
-
-                loading="lazy"
-                style={{
-                  borderBottomLeftRadius: 4,
-                  borderBottomRightRadius: 4,
-                  display: 'block',
-                  width: '100%',
-                }}
-              />
-            </div>
-          ))}
-        </Masonry>
       </div>
-
+      <Footer/>
 
     </>
 

@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346.31 102.3"><defs><style>.cls-1{fill:#231f20;}.cls-1,.cls-2{stroke:#777272;stroke-miterlimit:10;}.cls-2{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="logo"><g id="side-show-logo"><polygon class="cls-1" points="0.8 1.22 29.73 1.22 63.94 71.8 49.72 101.15 0.8 1.22"/><polygon class="cls-1" points="69.25 1.15 98.14 1.22 131.89 71.46 117.5 101.15 69.25 1.15"/><polygon class="cls-1" points="136.88 1.3 165.96 1.15 151.43 31.31 136.88 1.3"/><polygon class="cls-1" points="180.35 31.31 151.43 31.31 165.85 61.08 180.35 31.31"/><polygon id="silde-logo" class="cls-2" points="69.25 1.15 49.47 41.96 63.94 71.8 83.8 31.31 69.25 1.15"/><polygon id="slide-logo" class="cls-2" points="151.43 31.31 131.89 71.46 117.43 41.35 136.74 1.23 151.43 31.31"/></g><g id="side-hidden-logo"><polygon class="cls-2" points="180.35 1.22 209.28 1.22 243.49 71.8 229.27 101.15 180.35 1.22"/><polygon class="cls-2" points="248.8 1.15 277.69 1.22 311.44 71.46 297.06 101.15 248.8 1.15"/><polygon class="cls-2" points="316.44 1.3 345.52 1.15 330.98 31.31 316.44 1.3"/><polygon class="cls-2" points="248.8 1.15 229.02 41.96 243.49 71.8 263.35 31.31 248.8 1.15"/><polygon class="cls-2" points="330.98 31.31 311.44 71.46 296.98 41.35 316.29 1.23 330.98 31.31"/></g></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 102.3">
+<defs><style>.cls-1{fill:#231f20;stroke:#fff;stroke-miterlimit:10;}.cls-2{fill:#fff;}</style>
+</defs>
+<g id="Layer_2" data-name="Layer 2">
+    <g id="logo">
+        <g id="side-show-logo">
+            <polygon class="cls-1" points="0.8 1.22 29.73 1.22 63.94 71.8 49.72 101.15 0.8 1.22"/>
+            <polygon class="cls-1" points="69.25 1.15 98.14 1.22 131.89 71.46 117.5 101.15 69.25 1.15"/>
+            <polygon class="cls-1" points="136.88 1.3 165.96 1.15 151.43 31.31 136.88 1.3"/>
+            <polygon class="cls-1" points="180.35 31.31 151.43 31.31 165.85 61.08 180.35 31.31"/>
+            <polygon id="silde-logo" class="cls-2" points="69.25 1.15 49.47 41.96 63.94 71.8 83.8 31.31 69.25 1.15"/>
+            <polygon id="slide-logo" class="cls-2" points="151.43 31.31 131.89 71.46 117.43 41.35 136.74 1.23 151.43 31.31"/></g>
+            </g></g></svg>

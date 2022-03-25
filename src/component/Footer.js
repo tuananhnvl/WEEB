@@ -9,9 +9,9 @@ function Footer() {
   return (
     <div className="Footer">
       <div className="Container">
-        <div className="Row" style={{margin:"0 0 3rem 0"}}>
-          <div className="col-lg-30 col-lrtosm-30">
-          <img src={NavLogo} alt="ImageTitle" />
+        <div className="Row" style={{margin:"0 0 7rem 0"}}>
+          <div className="col-lg-30 col-lrtosm-30 fwf423">
+            <img src={NavLogo} alt="ImageTitle" />
           </div>
           
           <div className="col-lg-70 col-lrtosm-70 d32r" style={{display:'flex'}}>
@@ -57,7 +57,7 @@ function Footer() {
       </div>
       <div className="Container">
       <IconContext.Provider value={{ className: "Icon-Footer" }}>
-        <div className="Row">
+        <div className="Row" style={{justifyContent:'space-between'}}>
           <div className="col-lg-253 col-lrtosm-100 safg3" style={{textAlign:'center'}}>
           <FaFacebook />
           <FaTelegram />

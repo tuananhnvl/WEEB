@@ -1,35 +1,30 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { EffectCoverflow,Pagination } from "swiper";
 import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
 
 
 function SliderFeedback() {
 
  
   return (
-    <>
+    <>  
     <div className="SliderFeedbackCustomer">
     <Swiper
-       
-       slidesPerView={1}
-       breakpoints={{
-        // when window width is >= 640px
-        640: {
-          width: 640,
-          slidesPerView: 2,
-        },
-        // when window width is >= 768px
-        768: {
-          width: 768,
-          slidesPerView: 3,
-        },
-      }}
-        pagination={{
-          clickable: true,
-        }}
-       
-        modules={[Pagination]}
+       effect={"coverflow"}
+       grabCursor={true}
+       centeredSlides={true}
+       slidesPerView={"auto"}
+       coverflowEffect={{
+         rotate: 0,
+         stretch: 100,
+         depth: 300,
+         modifier: 1,
+         slideShadows: true,
+       }}
+       pagination={true}
+       modules={[EffectCoverflow, Pagination]}
         className="f3g4"
       >
         <SwiperSlide className="D678 r45yt">Slide 1</SwiperSlide>

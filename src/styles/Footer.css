@@ -39,3 +39,11 @@ font-family: var( --font-family);
         flex-wrap: wrap !important;
     }
 }
+.fwf423 {
+    display:flex;
+}
+.fwf423 >img {
+    max-width: 50%;
+    height: auto;
+    margin: 1.5rem auto auto auto;
+}
