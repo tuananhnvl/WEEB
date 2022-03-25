@@ -19,7 +19,7 @@ import Home from "../Home";
 /* import icon */
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { FaBeer } from 'react-icons/fa';
+import { MdPhoneInTalk } from 'react-icons/md';
 function Navbar() {
   /* const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -32,6 +32,7 @@ function Navbar() {
   function handleClose() {
     setAnchorEl(null);
   } */
+
   /* SCROLL MERNU & LOGO EFFECT */
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
@@ -59,6 +60,30 @@ function Navbar() {
     setBgMobiNav("");
     setTitleMobiNav("");
   };
+  
+
+  /* ROLLING TEXT */
+  useEffect(() => {
+    const g54g = document.querySelectorAll('.RollingText');
+    g54g.forEach(f345 => {
+      const innerText = f345.innerText;
+      //console.log(innerText);
+      f345.innerHTML = '';
+
+      const textContainer = document.createElement('div');
+      textContainer.classList.add('block');
+
+      for (const letter of innerText) {
+        const span = document.createElement('span');
+        span.innerText = letter.trim() === '' ? '\xa0' : letter;
+        span.classList.add('letter');
+        textContainer.appendChild(span);
+      }
+
+      f345.appendChild(textContainer);
+      f345.appendChild(textContainer.cloneNode(true));
+    });
+  }, []);
   
   return (
     <BrowserRouter>
@@ -144,7 +169,7 @@ function Navbar() {
                       <Link
                         to="/"
                         activeClassName="active"
-                        className="ItemMenu"
+                        className="ItemMenu RollingText"
                       >
                         Trang chủ
                       </Link>
@@ -153,7 +178,7 @@ function Navbar() {
                       <Link
                         to="/AboutUs"
                         activeClassName="active"
-                        className="ItemMenu"
+                        className="ItemMenu RollingText"
                       >
                         Về chúng tôi
                       </Link>
@@ -162,7 +187,7 @@ function Navbar() {
                       <Link
                         to="/Services"
                         activeClassName="active"
-                        className="ItemMenu"
+                        className="ItemMenu RollingText"
                       >
                         <a
                         /* aria-owns={anchorEl ? "simple-menu" : undefined}
@@ -210,13 +235,13 @@ function Navbar() {
                       <Link
                         to="/Project"
                         activeClassName="active"
-                        className="ItemMenu"
+                        className="ItemMenu RollingText"
                       >
                         Dự án
                       </Link>
                     </li>
                   </ul>
-                  <button className="ButtonContacttNavMenu">LIÊN HỆ</button>
+                  <a className="ButtonContacttNavMenu"><MdPhoneInTalk class="cs45tr"/>Liên hệ</a>
                 </div>
               </div>
             </div>

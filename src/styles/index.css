@@ -1,8 +1,9 @@
 body {
   margin: 0;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Playfair Display", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 1px;
 }
 
 
@@ -11,9 +12,10 @@ body {
   --black :RGB(10, 10, 10);
   --text-white : RGB(225,225,225);
   --fz-text-btn: 1.2rem;
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family: "Playfair Display", serif;
   --bg-color-footer:#272727;
   --gray-heading: #828282;
+  --gold-text: #d3a13b;
 }
 
 

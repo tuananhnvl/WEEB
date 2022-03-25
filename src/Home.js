@@ -8,7 +8,7 @@ import "./styles/SliderWWU.css";
 import "./styles/SliderFeedback.css";
 
 import {FaPlus} from "react-icons/fa";
-
+import {RiArrowRightSLine} from 'react-icons/ri';
 /* IMPORT ASSET */
 import svgdemo from "./asset/svgdemo.png";
 import ImageBanner from "./asset/ab.svg";
@@ -25,6 +25,8 @@ import SliderWWU from "./component/SliderWWU.js";
 import Footer from "./component/Footer.js";
 
 function Home() {
+ 
+
   function animation() {
     anime({
       targets: ".kjsdhrfgkljdfs",
@@ -57,6 +59,8 @@ function Home() {
   const [hover01, setHover01] = useState("");
   const [hover02, setHover02] = useState("");
   const [hover03, setHover03] = useState("");
+
+
   const hoverOn = () => setHover("fr233");
   const hoverOff = () => setHover("");
   const hoverOn01 = () => setHover01("fr233");
@@ -66,6 +70,25 @@ function Home() {
   const hoverOn03 = () => setHover03("fr233");
   const hoverOff03 = () => setHover03("");
   
+
+  const [Ehg54, setEhg54] = useState("");
+    const [Hd23, setHd23] = useState("");
+    const hoverOn7 = () => {
+        setEhg54("moveicon");
+        setHd23("movetext");
+    }
+    const hoverOff7 = () => {
+        setEhg54("");
+        setHd23("");
+    }
+
+    const [SC432, setSC432] = useState(false);
+    useEffect(() => {
+    
+      window.addEventListener("mouseover", () => {
+        setSC432(true);
+      });
+    }, []);
   return (
     <div>
       <div className="BANNER">
@@ -374,17 +397,31 @@ function Home() {
       </div>
       <div className="SLIDER-TECH MARGINSECTION">
         <div className="Container">
-          <h2 className="t34r"
-           
-          >
-            Công nghệ WEEB sử dụng
-          </h2>
+        
+          <div className="g3ftag534r" style={{display:'flex',width:'100%'}}/*  class="kuh4" */>
+            <h2 className="BorderHeadingBottom">  Công nghệ WEEB sử dụng</h2>
+            <div  class="ad3fd">
+                <RiArrowRightSLine  className={
+            SC432 ? "default moveicon" : "default"
+          }/>
+                <a className={
+            SC432 ? "TextSeeMore Hd23" : "movetext"
+          } >Xem chi tiết</a>
+            </div>
+        </div>
         </div>
         <Slider2Bar />
       </div>
       <div className="WORKWITHUS MARGINSECTION">
         <div className="Container" style={{ padding: "0 1rem" }}>
-          <h2 className="BorderHeadingBottom">Làm việc cùng WEEB</h2>
+        <div className="g3tr" style={{display:'flex',width:'100%'}} onMouseEnter={hoverOn7} onMouseLeave={hoverOff7}/*  class="kuh4" */>
+            <h2 className="BorderHeadingBottom">Làm việc cùng WEEB</h2>
+            <div  class="ad3fd">
+                <RiArrowRightSLine className={`default ${Ehg54}`}/>
+                <a className={`TextSeeMore ${Hd23}`}>Xem chi tiết</a>
+            </div>
+        </div>
+         
           <div className="Row" >
             <div className="col-lg-50 col-lrtosm-100">
               <div className="WorkwithusContent">
@@ -426,7 +463,13 @@ function Home() {
       <div className="SERVICES MARGINSECTION">
     
         <div className="Container" style={{ padding: "0 1rem" }}>
-          <h2 className="BorderHeadingBottom">DỊCH VỤ</h2>
+        <div className="g3tr" style={{display:'flex',width:'100%'}} onMouseEnter={hoverOn7} onMouseLeave={hoverOff7}/*  class="kuh4" */>
+            <h2 className="BorderHeadingBottom">DỊCH VỤ</h2>
+            <div  class="ad3fd">
+                <RiArrowRightSLine className={`default ${Ehg54}`}/>
+                <a className={`TextSeeMore ${Hd23}`}>Xem chi tiết</a>
+            </div>
+        </div>
           <div className="Row" style={{ justifyContent: "space-around" }}>
             <div className="col-lg-50 col-md-5 StyleBoxSer ">
               <div className="ItemSerHalf H6J">
@@ -483,7 +526,14 @@ function Home() {
       </div>
       <div className="PROJECT MARGINSECTION">
         <div className="Container" style={{padding:'1rem'}}>
-          <h2 className="BorderHeadingBottom">DỰ ÁN WEEB ĐÃ&nbsp;THAM GIA</h2>
+        <div className="g3tr" style={{display:'flex',width:'100%'}} onMouseEnter={hoverOn7} onMouseLeave={hoverOff7}/*  class="kuh4" */>
+            <h2 className="BorderHeadingBottom">DỰ ÁN WEEB ĐÃ&nbsp;THAM GIA</h2>
+            <div  class="ad3fd">
+                <RiArrowRightSLine className={`default ${Ehg54}`}/>
+                <a className={`TextSeeMore ${Hd23}`}>Xem chi tiết</a>
+            </div>
+        </div>
+    
           <div className="Row">
             <div className="col-lg-50 col-lrtosm-100">
               <div className="ProjectItem f432 H6J">

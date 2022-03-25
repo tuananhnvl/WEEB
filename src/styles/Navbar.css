@@ -52,6 +52,7 @@
 .NavbarMenu {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .ListItemMenu {
   display: flex;
@@ -69,9 +70,42 @@
   background-color: var(--black);
   border-radius: 5px;
   color: var(--text-white);
-  font-size: var(--fz-text-btn);
+  padding: 0 0.8rem;
+  height: 50px;
   font-weight: bold;
+  
+  display:flex;
+  align-items: center;
 }
+.cs45tr {
+  margin-right:0.5rem;
+  font-size:2rem !important;
+  /* transform: rotate(40deg);
+
+  animation-name: sg345;
+  animation-iteration-count:infinite;
+  animation-duration:500ms;
+  animation-delay:1s; */
+}
+/* @keyframes sg345 {
+  0% {
+   
+  }
+  25% {
+    transform: rotate(40deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  75{
+    transform: rotate(50deg); 
+  }
+  100% {
+  
+  }
+} */
+
+
 
 /*CUSTOM SGV LOGO*/
 
