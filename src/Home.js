@@ -397,28 +397,19 @@ function Home() {
       </div>
       <div className="SLIDER-TECH MARGINSECTION">
         <div className="Container">
-
-          <div className="g3tr" onMouseOut={(e) => handleMouseEnter(e)} onMouseLeave={(e) => handleMouseLeave(e)}  /*  class="kuh4" */>
-            <h2 className="BorderHeadingBottom">  Công nghệ WEEB sử dụng</h2>
-            <div class="ad3fd" >
-              <RiArrowRightSLine className="default" />
-              <a id="kuuh" className="TextSeeMore">Xem chi tiết</a>
-            </div>
-          </div>
+            <h2 className="t34r">Công nghệ WEEB sử dụng</h2>
         </div>
         <Slider2Bar />
       </div>
       <div className="WORKWITHUS MARGINSECTION">
         <div className="Container" style={{ padding: "0 1rem" }}>
           <div className="g3tr" onMouseOut={(e) => handleMouseEnter(e)} onMouseLeave={(e) => handleMouseLeave(e)}  /*  class="kuh4" */>
-            <h2 className="BorderHeadingBottom">  Công nghệ WEEB sử dụng</h2>
+            <h2 className="BorderHeadingBottom">Hỗ trợ từ WEEB</h2>
             <div class="ad3fd" >
               <RiArrowRightSLine className="default" />
               <a id="kuuh" className="TextSeeMore">Xem chi tiết</a>
             </div>
-
           </div>
-
           <div className="Row" >
             <div className="col-lg-50 col-lrtosm-100">
               <div className="WorkwithusContent">
@@ -447,11 +438,7 @@ function Home() {
       </div>
       <div className="PARTNERWEEB MARGINSECTION">
         <div className="Container">
-          <h2
-            className="t34r"
-          >
-            Đối tác đồng hành cùng WEEB
-          </h2>
+          <h2 className="t34r">Đối tác đồng hành cùng WEEB</h2>
         </div>
         <div className="SLIDERLOOP">
           <img src={svgdemo} alt="ImageTitle" className="AnimejsSliderLoop" />
