@@ -21,6 +21,8 @@
     overflow:hidden;
     transform-origin: 223.4323px 294.755px;
     transform: rotate(10deg);
+
+    transition-timing-function: cubic-bezier(0.065, 0.840, 0.140, 0.955);
 }
 
 .o89yh654 #text404 {
@@ -39,17 +41,17 @@
 
 
 @keyframes asd312df {
-    0%    { transform: rotate(10deg); }
-    20%   {  transform: rotate(15deg);transition-timing-function: cubic-bezier(0.065, 0.840, 0.140, 0.955); }
-    50%   {  transform: rotate(40deg);transition-timing-function: cubic-bezier(0.065, 0.840, 0.140, 0.955); }
-    80%   {  transform: rotate(-20deg);transition-timing-function: cubic-bezier(0.065, 0.840, 0.140, 0.955); }
-    100%  {  transform: rotate(10deg);transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);  }
+    0%    { transform: rotate(10deg);}
+    20%   {  transform: rotate(15deg); }
+    50%   {  transform: rotate(40deg);}
+    80%   {  transform: rotate(-20deg);}
+    100%  {  transform: rotate(10deg);}
 }
 
 @keyframes fd34w35 {
     0%    { opacity: 1; }
-    20%   {  opacity: 0; transition-timing-function: cubic-bezier(0.065, 0.840, 0.140, 0.955);}
-    80%   {  opacity: 0;transition-timing-function: cubic-bezier(0.065, 0.840, 0.140, 0.955);}
-    100%  {  opacity: 1;transition-timing-function: cubic-bezier(0.065, 0.840, 0.140, 0.955);}
+    20%   {  opacity: 0;}
+    80%   {  opacity: 0;}
+    100%  {  opacity: 1;}
 }
  
