@@ -28,6 +28,7 @@
   width:fit-content ;
   opacity:0;
   color:var(--gold-text);
+  transition:0.2s;
 }
 .TextSeeMore {
   width: max-content;
@@ -68,7 +69,7 @@ animation-fill-mode: forwards;
   }
   100% {
 
-    transform: translate(148px,-50%);
+    transform: translate(169px,-50%);
     opacity:1;  
   }
 }
