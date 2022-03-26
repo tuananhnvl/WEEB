@@ -88,8 +88,46 @@ function Home() {
     en43sdt.classList.remove("movetext");
     en23423t.classList.remove("moveicon");
   }
+/* CONFIG LOAING LAZY */
+const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    // activate loading state when component mounts
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+
+      // disable loading after 5 seconds
+      setIsLoading(false);
+    }, 1000);
+    // Cancel the timer while unmounting
+    return () => clearTimeout(timer);
+  }, []);
+ 
   return (
+    <>
+    {isLoading && 
+      <div className="LoadingPageFC">
+        <div class="wheel-and-hamster" role="img" aria-label="Orange and tan hamster running in a metal wheel">
+          <div class="wheel"></div>
+          <div class="hamster">
+            <div class="hamster__body">
+              <div class="hamster__head">
+                <div class="hamster__ear"></div>
+                <div class="hamster__eye"></div>
+                <div class="hamster__nose"></div>
+              </div>
+              <div class="hamster__limb hamster__limb--fr"></div>
+              <div class="hamster__limb hamster__limb--fl"></div>
+              <div class="hamster__limb hamster__limb--br"></div>
+              <div class="hamster__limb hamster__limb--bl"></div>
+              <div class="hamster__tail"></div>
+            </div>
+          </div>
+          <div class="spoke"></div>
+        </div>
+      </div>
+      }
+      {!isLoading && (
     <div>
       <div className="BANNER">
         <div className="Container">
@@ -605,6 +643,8 @@ function Home() {
       </div>
       <Footer />
     </div>
+    )}
+    </>
   );
 }
 
