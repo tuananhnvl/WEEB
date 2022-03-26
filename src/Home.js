@@ -1,5 +1,5 @@
 /* IMPORT STYLE "CSS" AND DEFEN */
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/Home.css";
 import "./styles/GIRD.css";
 import { anime } from "react-anime";
@@ -7,8 +7,8 @@ import { anime } from "react-anime";
 import "./styles/SliderWWU.css";
 import "./styles/SliderFeedback.css";
 
-import {FaPlus} from "react-icons/fa";
-import {RiArrowRightSLine} from 'react-icons/ri';
+import { FaPlus } from "react-icons/fa";
+import { RiArrowRightSLine } from 'react-icons/ri';
 /* IMPORT ASSET */
 import svgdemo from "./asset/svgdemo.png";
 import ImageBanner from "./asset/ab.svg";
@@ -25,7 +25,7 @@ import SliderWWU from "./component/SliderWWU.js";
 import Footer from "./component/Footer.js";
 
 function Home() {
- 
+
 
   function animation() {
     anime({
@@ -69,26 +69,26 @@ function Home() {
   const hoverOff02 = () => setHover02("");
   const hoverOn03 = () => setHover03("fr233");
   const hoverOff03 = () => setHover03("");
-  
 
-  const [Ehg54, setEhg54] = useState("");
-    const [Hd23, setHd23] = useState("");
-    const hoverOn7 = () => {
-        setEhg54("moveicon");
-        setHd23("movetext");
-    }
-    const hoverOff7 = () => {
-        setEhg54("");
-        setHd23("");
-    }
 
-    const [SC432, setSC432] = useState(false);
-    useEffect(() => {
-    
-      window.addEventListener("mouseover", () => {
-        setSC432(true);
-      });
-    }, []);
+
+  /* CONFIG CONTROL HOVER ++ */
+  function handleMouseEnter(e) {
+    const iy9 = e.target;
+    const en43t = iy9.querySelector('.TextSeeMore');
+    const enasdasd43t = iy9.querySelector('.default');
+    en43t.classList.add("movetext");
+    enasdasd43t.classList.add("moveicon");
+  }
+
+  function handleMouseLeave(e) {
+    const iy3ng = e.target;
+    const en43sdt = iy3ng.querySelector('.TextSeeMore');
+    const en23423t = iy3ng.querySelector('.default');
+    en43sdt.classList.remove("movetext");
+    en23423t.classList.remove("moveicon");
+  }
+
   return (
     <div>
       <div className="BANNER">
@@ -354,7 +354,7 @@ function Home() {
                     </linearGradient>
                   </defs>
                 </svg>
-                
+
               </div>
             </div>
             <div className="col-lg-50 BannerItem">
@@ -362,7 +362,7 @@ function Home() {
                 <div className="MarginCenterProp">
                   <h3 style={{ margin: "0.5rem 0 2rem 0" }}>Xây dựng website của bạn</h3>
                   <p>
-                  Với sự hỗ trợ từ Chúng tôi, Bạn sẽ tạo ra một website một cách nhanh chóng, dễ dàng và phù hợp với Doanh nghiệp của bạn.
+                    Với sự hỗ trợ từ Chúng tôi, Bạn sẽ tạo ra một website một cách nhanh chóng, dễ dàng và phù hợp với Doanh nghiệp của bạn.
                   </p>
                   <div style={{ display: "flex" }}>
                     <button className="ButtonContact abx">Liên hệ</button>
@@ -386,10 +386,10 @@ function Home() {
             <div className="col-lg-30 AboutItem02 ">
               <dic className="MarginCenterProp" style={{ padding: "1rem" }}>
                 <h2>WEEB</h2>
-                <p style={{letterSpacing:'2px'}}>
+                <p style={{ letterSpacing: '2px' }}>
                   Trải nghiệm dịch vụ tư vấn hỗ trợ chuyển đổi số hàng đầu.
                 </p>
-                <button className="ButtonContact" style={{width:'100%'}}>Tìm hiểu thêm</button>
+                <button className="ButtonContact" style={{ width: '100%' }}>Tìm hiểu thêm</button>
               </dic>
             </div>
           </div>
@@ -397,51 +397,48 @@ function Home() {
       </div>
       <div className="SLIDER-TECH MARGINSECTION">
         <div className="Container">
-        
-          <div className="g3ftag534r" style={{display:'flex',width:'100%'}}/*  class="kuh4" */>
+
+          <div className="g3tr" onMouseOut={(e) => handleMouseEnter(e)} onMouseLeave={(e) => handleMouseLeave(e)}  /*  class="kuh4" */>
             <h2 className="BorderHeadingBottom">  Công nghệ WEEB sử dụng</h2>
-            <div  class="ad3fd">
-                <RiArrowRightSLine  className={
-            SC432 ? "default moveicon" : "default"
-          }/>
-                <a className={
-            SC432 ? "TextSeeMore Hd23" : "movetext"
-          } >Xem chi tiết</a>
+            <div class="ad3fd" >
+              <RiArrowRightSLine className="default" />
+              <a id="kuuh" className="TextSeeMore">Xem chi tiết</a>
             </div>
-        </div>
+          </div>
         </div>
         <Slider2Bar />
       </div>
       <div className="WORKWITHUS MARGINSECTION">
         <div className="Container" style={{ padding: "0 1rem" }}>
-        <div className="g3tr" style={{display:'flex',width:'100%'}} onMouseEnter={hoverOn7} onMouseLeave={hoverOff7}/*  class="kuh4" */>
-            <h2 className="BorderHeadingBottom">Làm việc cùng WEEB</h2>
-            <div  class="ad3fd">
-                <RiArrowRightSLine className={`default ${Ehg54}`}/>
-                <a className={`TextSeeMore ${Hd23}`}>Xem chi tiết</a>
+          <div className="g3tr" onMouseOut={(e) => handleMouseEnter(e)} onMouseLeave={(e) => handleMouseLeave(e)}  /*  class="kuh4" */>
+            <h2 className="BorderHeadingBottom">  Công nghệ WEEB sử dụng</h2>
+            <div class="ad3fd" >
+              <RiArrowRightSLine className="default" />
+              <a id="kuuh" className="TextSeeMore">Xem chi tiết</a>
             </div>
-        </div>
-         
+
+          </div>
+
           <div className="Row" >
             <div className="col-lg-50 col-lrtosm-100">
               <div className="WorkwithusContent">
                 <h4>THIẾT KẾ NỔI BẬT</h4>
-                <FaPlus className="jyt6"/>
+                <FaPlus className="jyt6" />
               </div>
               <div className="WorkwithusContent">
                 <h4>TỐI ƯU HÓA WEBSITE</h4>
-                <FaPlus className="jyt6"/>
+                <FaPlus className="jyt6" />
               </div>
               <div className="WorkwithusContent">
                 <h4>THIẾT KẾ HƯỚNG NGƯỜI DÙNG</h4>
-                <FaPlus className="jyt6"/>
+                <FaPlus className="jyt6" />
               </div>
               <div className="WorkwithusContent">
                 <h4>THEO SÁT YÊU CẦU</h4>
-                <FaPlus className="jyt6"/>
+                <FaPlus className="jyt6" />
               </div>
             </div>
-           
+
             <div className="col-lg-50 WorkwithusImg">
               <SliderWWU />
             </div>
@@ -461,15 +458,16 @@ function Home() {
         </div>
       </div>
       <div className="SERVICES MARGINSECTION">
-    
+
         <div className="Container" style={{ padding: "0 1rem" }}>
-        <div className="g3tr" style={{display:'flex',width:'100%'}} onMouseEnter={hoverOn7} onMouseLeave={hoverOff7}/*  class="kuh4" */>
+          <div className="g3tr" onMouseOut={(e) => handleMouseEnter(e)} onMouseLeave={(e) => handleMouseLeave(e)}  /*  class="kuh4" */>
             <h2 className="BorderHeadingBottom">DỊCH VỤ</h2>
-            <div  class="ad3fd">
-                <RiArrowRightSLine className={`default ${Ehg54}`}/>
-                <a className={`TextSeeMore ${Hd23}`}>Xem chi tiết</a>
+            <div class="ad3fd" >
+              <RiArrowRightSLine className="default" />
+              <a id="kuuh" className="TextSeeMore">Xem chi tiết</a>
             </div>
-        </div>
+
+          </div>
           <div className="Row" style={{ justifyContent: "space-around" }}>
             <div className="col-lg-50 col-md-5 StyleBoxSer ">
               <div className="ItemSerHalf H6J">
@@ -520,26 +518,27 @@ function Home() {
             </div>
           </div>
           <div class="BtnContactOnMobie">
-          <button className="ButtonContact aby"  style={{width:'100%'}}>Liên hệ với WEEB</button>
+            <button className="ButtonContact aby" style={{ width: '100%' }}>Liên hệ với WEEB</button>
+          </div>
         </div>
-        </div>  
       </div>
       <div className="PROJECT MARGINSECTION">
-        <div className="Container" style={{padding:'1rem'}}>
-        <div className="g3tr" style={{display:'flex',width:'100%'}} onMouseEnter={hoverOn7} onMouseLeave={hoverOff7}/*  class="kuh4" */>
+        <div className="Container" style={{ padding: '1rem' }}>
+
+          <div className="g3tr" onMouseOut={(e) => handleMouseEnter(e)} onMouseLeave={(e) => handleMouseLeave(e)}  /*  class="kuh4" */>
             <h2 className="BorderHeadingBottom">DỰ ÁN WEEB ĐÃ&nbsp;THAM GIA</h2>
-            <div  class="ad3fd">
-                <RiArrowRightSLine className={`default ${Ehg54}`}/>
-                <a className={`TextSeeMore ${Hd23}`}>Xem chi tiết</a>
+            <div class="ad3fd" >
+              <RiArrowRightSLine className="default" />
+              <a id="kuuh" className="TextSeeMore">Xem chi tiết</a>
             </div>
-        </div>
-    
+
+          </div>
           <div className="Row">
             <div className="col-lg-50 col-lrtosm-100">
               <div className="ProjectItem f432 H6J">
                 <div className="ProjectItemImg" onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
-                  <img className="t7y2 b34d2" src={ProjectImg} alt="Dự án khách hàng WEEB"/>
-                  <img className={`t7y2 yt74h ${hover}`} src={projectView} alt="Dự án khách hàng WEEB"/>
+                  <img className="t7y2 b34d2" src={ProjectImg} alt="Dự án khách hàng WEEB" />
+                  <img className={`t7y2 yt74h ${hover}`} src={projectView} alt="Dự án khách hàng WEEB" />
                 </div>
                 <div className="ProjectItemContent">
                   <p>Petrolimex</p>
@@ -552,9 +551,9 @@ function Home() {
             </div>
             <div className="col-lg-50 col-lrtosm-100">
               <div className="ProjectItem ">
-              <div className="ProjectItemImg" onMouseEnter={hoverOn01} onMouseLeave={hoverOff01}>
-                  <img className="t7y2 b34d2" src={ProjectImg} alt="Dự án khách hàng WEEB"/>
-                  <img className={`t7y2 yt74h ${hover01}`} src={projectView01} alt="Dự án khách hàng WEEB"/>
+                <div className="ProjectItemImg" onMouseEnter={hoverOn01} onMouseLeave={hoverOff01}>
+                  <img className="t7y2 b34d2" src={ProjectImg} alt="Dự án khách hàng WEEB" />
+                  <img className={`t7y2 yt74h ${hover01}`} src={projectView01} alt="Dự án khách hàng WEEB" />
                 </div>
                 <div className="ProjectItemContent">
                   <p>NamVietLaw lawfirm</p>
@@ -569,9 +568,9 @@ function Home() {
             </div>
             <div className="col-lg-50 col-lrtosm-100">
               <div className="ProjectItem f432 H6J">
-              <div className="ProjectItemImg" onMouseEnter={hoverOn02} onMouseLeave={hoverOff02}>
-                  <img className="t7y2 b34d2" src={ProjectImg} alt="Dự án khách hàng WEEB"/>
-                  <img className={`t7y2 yt74h ${hover02}`} src={projectView02} alt="Dự án khách hàng WEEB"/>
+                <div className="ProjectItemImg" onMouseEnter={hoverOn02} onMouseLeave={hoverOff02}>
+                  <img className="t7y2 b34d2" src={ProjectImg} alt="Dự án khách hàng WEEB" />
+                  <img className={`t7y2 yt74h ${hover02}`} src={projectView02} alt="Dự án khách hàng WEEB" />
                 </div>
                 <div className="ProjectItemContent">
                   <p>Hai Son Co. LTD</p>
@@ -584,9 +583,9 @@ function Home() {
             </div>
             <div className="col-lg-50 col-lrtosm-100">
               <div className="ProjectItem">
-              <div className="ProjectItemImg" onMouseEnter={hoverOn03} onMouseLeave={hoverOff03}>
-                  <img className="t7y2 b34d2" src={ProjectImg} alt="Dự án khách hàng WEEB"/>
-                  <img className={`t7y2 yt74h ${hover03}`} src={projectView03} alt="Dự án khách hàng WEEB"/>
+                <div className="ProjectItemImg" onMouseEnter={hoverOn03} onMouseLeave={hoverOff03}>
+                  <img className="t7y2 b34d2" src={ProjectImg} alt="Dự án khách hàng WEEB" />
+                  <img className={`t7y2 yt74h ${hover03}`} src={projectView03} alt="Dự án khách hàng WEEB" />
                 </div>
                 <div className="ProjectItemContent">
                   <p>Hoarient Co. LTD</p>
@@ -599,13 +598,21 @@ function Home() {
             </div>
           </div>
           <div class="BtnContactOnMobie">
-            <button className="ButtonContact aby" style={{width:'100%'}}>Xem thêm dự án</button>
+            <button className="ButtonContact aby" style={{ width: '100%' }}>Xem thêm dự án</button>
           </div>
         </div>
       </div>
       <div className="FEEDBACKCUSTOMER MARGINSECTION">
         <div className="Container" style={{ padding: "0 1rem" }}>
-          <h2 className="BorderHeadingBottom">PHẢN HỒI TỪ KHÁCH HÀNG</h2>
+          <div className="g3tr" onMouseOut={(e) => handleMouseEnter(e)} onMouseLeave={(e) => handleMouseLeave(e)}  /*  class="kuh4" */>
+            <h2 className="BorderHeadingBottom">PHẢN HỒI TỪ KHÁCH HÀNG</h2>
+            <div class="ad3fd" >
+              <RiArrowRightSLine className="default" />
+              <a id="kuuh" className="TextSeeMore">Xem chi tiết</a>
+            </div>
+
+          </div>
+
           <SliderFeedback />
         </div>
       </div>

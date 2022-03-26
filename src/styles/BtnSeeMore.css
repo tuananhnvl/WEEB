@@ -1,5 +1,7 @@
 .g3tr {
   cursor:pointer;
+  display:flex;
+  width:100%;
 }
 .g3tr > h2 {
   margin: 1.8rem 0 ;
@@ -62,18 +64,18 @@ animation-fill-mode: forwards;
   10% {
   
     opacity:1;
-    transform: translate(-10px,-50%);
+    transform: translate(-5px,-50%);
   }
   100% {
 
-    transform: translate(165px,-50%);
+    transform: translate(148px,-50%);
     opacity:1;  
   }
 }
 .movetext {
   opacity:1;
   transition:0.8s;
-  transform: translate(15px,-50%);
+  transform: translate(20px,-50%);
   transition-delay:100ms;
 }
   
