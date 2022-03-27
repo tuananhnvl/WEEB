@@ -71,6 +71,7 @@ function AboutUs() {
     
 
     const group = new THREE.Group();
+
     const geometry = new THREE.SphereGeometry( 15, 32, 16 );
  
     const torusKnot = new THREE.Mesh(geometry);
@@ -81,7 +82,7 @@ function AboutUs() {
   
     const tempPosition = new THREE.Vector3();
    
-    for (let i = 0; i < 1500; i ++) {
+    for (let i = 0; i < 20; i ++) {
       
       sampler.sample(tempPosition);
 
@@ -94,11 +95,17 @@ function AboutUs() {
     pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
     /* const pointsMaterial = new THREE.MeshPhongMaterial( { map: THREE.TextureLoader('https://img.icons8.com/emoji/48/000000/badminton-emoji.png') } ); */
-    const pointsMaterial = new THREE.PointsMaterial({
+    /* const pointsMaterial = new THREE.PointsMaterial({
       color: 'white',
       size: 0.03
+    }); */
+    const textureImage = require('./asset/logo512.png');
+    const texasdture = new THREE.TextureLoader().load(textureImage);
+    console.log(texasdture);
+    const pointsMaterial = new THREE.PointsMaterial({
+      map:texasdture,
+      size:3
     });
-
     const points = new THREE.Points(pointsGeometry, pointsMaterial);
 
     group.add(points); 
@@ -107,14 +114,14 @@ function AboutUs() {
 
     camera.position.set(0, 0, 18);
 
-    //game login
+    // MOVE
     var update = function() {
-      // Just for fun
+       //Just for fun
       group.rotation.x += 0.001;
       group.rotation.y += 0.0005;
     };
 
-    // draw scene
+    // RENDER
     var render = function() {
       renderer.render(scene, camera);
     };
@@ -128,7 +135,7 @@ function AboutUs() {
 
     GameLoop();
 // SCENE BACKGOURND
-scene.background = new THREE.Color( 'black' );
+scene.background = new THREE.Color( 'lightblue' );
 
 
 // orbit control:
