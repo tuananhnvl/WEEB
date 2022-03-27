@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { MeshSurfaceSampler } from './Hook/MeshSurfaceSampler.js';
 import Footer from "./component/Footer.js";
-
+import svgdemo from "./asset/svgdemo.png";
 import "./styles/AboutUs.css";
 import "./styles/svg404.css";
 
@@ -44,22 +47,102 @@ function AboutUs() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // activate loading state when component mounts
+
     setIsLoading(true);
     const timer = setTimeout(() => {
-
-      // disable loading after 5 seconds
       setIsLoading(false);
     }, 1700);
-    // Cancel the timer while unmounting
+
     return () => clearTimeout(timer);
+  }, []);
+
+  const mountRef = useRef(null);
+  useEffect(() => {
+    setTimeout(() => {
+      var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    mountRef.current.appendChild(renderer.domElement);
+    new OrbitControls(camera, renderer.domElement);
+    // create the shape
+  
+    
+
+    const group = new THREE.Group();
+    const geometry = new THREE.SphereGeometry( 15, 32, 16 );
+ 
+    const torusKnot = new THREE.Mesh(geometry);
+
+    const sampler = new MeshSurfaceSampler(torusKnot).build();
+
+    const vertices = [];
+  
+    const tempPosition = new THREE.Vector3();
+   
+    for (let i = 0; i < 1500; i ++) {
+      
+      sampler.sample(tempPosition);
+
+      vertices.push(tempPosition.x, tempPosition.y, tempPosition.z);
+    }
+
+
+    const pointsGeometry = new THREE.BufferGeometry();
+   
+    pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+    /* const pointsMaterial = new THREE.MeshPhongMaterial( { map: THREE.TextureLoader('https://img.icons8.com/emoji/48/000000/badminton-emoji.png') } ); */
+    const pointsMaterial = new THREE.PointsMaterial({
+      color: 'white',
+      size: 0.03
+    });
+
+    const points = new THREE.Points(pointsGeometry, pointsMaterial);
+
+    group.add(points); 
+  
+    scene.add(group);
+
+    camera.position.set(0, 0, 18);
+
+    //game login
+    var update = function() {
+      // Just for fun
+      group.rotation.x += 0.001;
+      group.rotation.y += 0.0005;
+    };
+
+    // draw scene
+    var render = function() {
+      renderer.render(scene, camera);
+    };
+
+    //run gameloop (update, render, repeat)
+    var GameLoop = function() {
+      requestAnimationFrame(GameLoop);
+      update();
+      render();
+    };
+
+    GameLoop();
+// SCENE BACKGOURND
+scene.background = new THREE.Color( 'black' );
+
+
+// orbit control:
+
+      
+      return () => mountRef.current.removeChild( renderer.domElement);
+    }, 1700);
   }, []);
 
   return (
     <>
-
+     
       {isLoading &&
-        <div className="LoadingPageFC">
+        <div className="LoadingPageFC" >
           <div class="wheel-and-hamster" role="img" aria-label="Orange and tan hamster running in a metal wheel">
             <div class="wheel"></div>
             <div class="hamster">
@@ -82,13 +165,9 @@ function AboutUs() {
       }
       {!isLoading && (
         <div>
-
-
-          <div class="page404">
-
+          <div class="page404" >
             <svg class="o89yh654" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 600">
-
-              <g id="ghost404">
+              <g id="ghost404" >
                 <path id="shadowbody" class="clss-1" d="M117.64,568.41c48.07,0,87-3.58,87-8s-39-8-87-8-87,3.58-87,8S69.58,568.41,117.64,568.41Z" />
                 <g id="body">
                   <path class="clss-2" d="M216.42,304.47,212,295.82l5-13.32,6.62-6.71c-.08-11.62-.23-22.79-.83-34.38q-.33-6.54-.78-13.08c-4.31-68.39-70.23-108-120.31-92.45C51.4,151.2,34.26,199.89,40,248c.39,3.24.74,6.47,1.07,9.71Q43,276.3,43.69,295C-25,367.62,2.31,386.65,25,364.09c6-6,12.37-12.1,18.63-18a634.58,634.58,0,0,1-8.32,78.58c-.08.53-.18,1.05-.26,1.57a18.94,18.94,0,0,0,13.56,21.38c9.22,2.39,18.1-3.5,20-13.79.09-.43.16-.87.24-1.3s.17-1,.26-1.48c1.82-10.23,11.08-17.7,20.59-15.93l.16,0c9.49,1.77,15.84,12.86,13.75,23.86-.09.51-.2,1-.29,1.56s-.18.91-.27,1.38c-2.07,10.82,3.44,21.16,12.55,23.87s18.33-4.13,20.68-15.71l.3-1.46c.11-.55.22-1.11.32-1.66,2.28-11.51,11.78-19.34,21.21-17.42s15.55,13.64,13,26c-.13.59-.24,1.17-.37,1.75s-.22,1-.33,1.55c-2.57,12.19,2.16,24.16,11.22,27s18.79-5.26,21.68-18.25c.16-.7.31-1.39.47-2.09a857.35,857.35,0,0,0,19.7-158.15Z" />
@@ -143,7 +222,7 @@ function AboutUs() {
               </g>
             </svg>
           </div>
-
+          <div ref={mountRef} ></div>
           <Footer />
         </div>
       )}

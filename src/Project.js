@@ -95,14 +95,14 @@ function Project() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // activate loading state when component mounts
+    
     setIsLoading(true);
     const timer = setTimeout(() => {
 
-      // disable loading after 5 seconds
+      
       setIsLoading(false);
     }, 1700);
-    // Cancel the timer while unmounting
+    
     return () => clearTimeout(timer);
   }, []);
   return (
