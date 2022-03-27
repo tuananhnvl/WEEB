@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Footer from "./component/Footer.js";
-import "./styles/Project.css";
+
 import Masonry from '@mui/lab/Masonry';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -101,40 +101,39 @@ function Project() {
 
       // disable loading after 5 seconds
       setIsLoading(false);
-    }, 1000);
+    }, 1700);
     // Cancel the timer while unmounting
     return () => clearTimeout(timer);
   }, []);
   return (
     <>
-
-     
-          {isLoading && 
-          <div className="LoadingPageFC">
-            <div class="wheel-and-hamster" role="img" aria-label="Orange and tan hamster running in a metal wheel">
-              <div class="wheel"></div>
-              <div class="hamster">
-                <div class="hamster__body">
-                  <div class="hamster__head">
-                    <div class="hamster__ear"></div>
-                    <div class="hamster__eye"></div>
-                    <div class="hamster__nose"></div>
-                  </div>
-                  <div class="hamster__limb hamster__limb--fr"></div>
-                  <div class="hamster__limb hamster__limb--fl"></div>
-                  <div class="hamster__limb hamster__limb--br"></div>
-                  <div class="hamster__limb hamster__limb--bl"></div>
-                  <div class="hamster__tail"></div>
+      {isLoading &&
+        <div className="LoadingPageFC">
+          <div class="wheel-and-hamster" role="img" aria-label="Orange and tan hamster running in a metal wheel">
+            <div class="wheel"></div>
+            <div class="hamster">
+              <div class="hamster__body">
+                <div class="hamster__head">
+                  <div class="hamster__ear"></div>
+                  <div class="hamster__eye"></div>
+                  <div class="hamster__nose"></div>
                 </div>
+                <div class="hamster__limb hamster__limb--fr"></div>
+                <div class="hamster__limb hamster__limb--fl"></div>
+                <div class="hamster__limb hamster__limb--br"></div>
+                <div class="hamster__limb hamster__limb--bl"></div>
+                <div class="hamster__tail"></div>
               </div>
-              <div class="spoke"></div>
             </div>
+            <div class="spoke"></div>
           </div>
-          }
-          {!isLoading && (
-             <div className="Container">
-              <h2>CÁC DỰ ÁN ĐÃ THỰC HIỆN</h2>
-              <Masonry columns={2} spacing={5}>
+        </div>
+      }
+      {!isLoading && (
+        <>
+          <div className="Container">
+            <h2>CÁC DỰ ÁN ĐÃ THỰC HIỆN</h2>
+            <Masonry columns={2} spacing={5}>
               {itemData.map((item, index) => (
                 <Card key={index} style={{ height: `${item.height}` }}  >
                   <CardActionArea key={index} style={{ height: `${item.height}` }} >
@@ -164,12 +163,14 @@ function Project() {
                   </CardActionArea>
                 </Card>
               ))}
-           
-        
-              </Masonry>
-            </div>
-          )}
-      <Footer />
+
+
+            </Masonry>
+          </div>
+          <Footer />
+        </>
+      )}
+    
 
     </>
 

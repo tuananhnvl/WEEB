@@ -1,14 +1,25 @@
 .LoadingPageFC {
- 
-    background-color:#fff;
+    animation: ert3In ;
+    animation-fill-mode:forwards;
+    animation-duration:1700ms;
+    animation-timing-function:cubic-bezier(0.16, 1, 0.3, 1);
+    opacity:0;
     width: 100%;
     height:88vh;
     border-radius: 0.25rem;
     position: fixed;
     display:flex;
     z-index: 9;
-   
+    
 }
+
+@keyframes ert3In {
+  0% { opacity:0; }
+  20% { opacity:1; }
+  80% { opacity:1; }
+  100% { opacity:0; }
+}
+
 :root {
     --bg: hsl(90,90%,20%);
     --fg: hsl(223,10%,10%);

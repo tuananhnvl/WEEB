@@ -95,10 +95,10 @@ const [isLoading, setIsLoading] = useState(true);
     // activate loading state when component mounts
     setIsLoading(true);
     const timer = setTimeout(() => {
-
+    
       // disable loading after 5 seconds
       setIsLoading(false);
-    }, 1000);
+    }, 1700);
     // Cancel the timer while unmounting
     return () => clearTimeout(timer);
   }, []);
