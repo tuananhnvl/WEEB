@@ -59,83 +59,128 @@ function AboutUs() {
   const mountRef = useRef(null);
   useEffect(() => {
     setTimeout(() => {
-      var scene = new THREE.Scene();
+    //CONFIG SCENE 
+    var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
     new OrbitControls(camera, renderer.domElement);
-    // create the shape
-  
+    // CREAT OBJ
+    //const group = new THREE.Group();                                      // NHÓM GEO VÀ MAR
+    //const geometry = new THREE.SphereGeometry( 10, 32, 16 );              // TYPE OBJ
+    const t45t = require('./asset/map8k.jpg');     
+    const t23445t = require('./asset/globalbump.jpg');      
+    const t2wr5t = require('./asset/globalcloud.jpg');  
+    const mapglobal = new THREE.TextureLoader().load(t45t);  
+    const globalbump = new THREE.TextureLoader().load(t23445t);  
+    const globalcloud = new THREE.TextureLoader().load(t2wr5t);  
+    const ObjType = new THREE.Mesh(new THREE.SphereGeometry(7, 32, 32),
+    new THREE.MeshPhongMaterial({
+      map: mapglobal,
+      bumpMap: globalbump,
+      bumpScale:   0.005,
+      specularMap: globalcloud,
+      specular: new THREE.Color('grey')}));
     
 
-    const group = new THREE.Group();
+    var light = new THREE.AmbientLight(0x333333,0.2);
+    light.position.set(5,3,5);
+    light.intensity = 6;
+    /* const ObjType = new THREE.Mesh(geometry);     
+    const ObjTypeMeshSur = new MeshSurfaceSampler(ObjType).build();            // MeshSurfaceSampler BUILD POINT IN SURFACE
 
-    const geometry = new THREE.SphereGeometry( 15, 32, 16 );
- 
-    const torusKnot = new THREE.Mesh(geometry);
+    const JsonChildPosition00 = [];
+    const JsonChildPosition01 = [];
+    const JsonChildPosition02 = [];
 
-    const sampler = new MeshSurfaceSampler(torusKnot).build();
+    const ObjChildPosition = new THREE.Vector3();
 
-    const vertices = [];
-  
-    const tempPosition = new THREE.Vector3();
-   
-    for (let i = 0; i < 20; i ++) {
-      
-      sampler.sample(tempPosition);
+    for (let i = 0; i < 5000; i ++) {
+    
+      ObjTypeMeshSur.sample(ObjChildPosition);
+     
 
-      vertices.push(tempPosition.x, tempPosition.y, tempPosition.z);
+      JsonChildPosition00.push(ObjChildPosition.x, ObjChildPosition.y, ObjChildPosition.z);
     }
 
-
-    const pointsGeometry = new THREE.BufferGeometry();
-   
-    pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-
-    /* const pointsMaterial = new THREE.MeshPhongMaterial( { map: THREE.TextureLoader('https://img.icons8.com/emoji/48/000000/badminton-emoji.png') } ); */
-    /* const pointsMaterial = new THREE.PointsMaterial({
-      color: 'white',
-      size: 0.03
-    }); */
-    const textureImage = require('./asset/logo512.png');
-    const texasdture = new THREE.TextureLoader().load(textureImage);
-    console.log(texasdture);
-    const pointsMaterial = new THREE.PointsMaterial({
-      map:texasdture,
-      size:3
-    });
-    const points = new THREE.Points(pointsGeometry, pointsMaterial);
-
-    group.add(points); 
   
-    scene.add(group);
+    
+    for (let i = 0; i < 4; i ++) {
+     
+      ObjTypeMeshSur.sample(ObjChildPosition);
+      JsonChildPosition01.push(ObjChildPosition.x, ObjChildPosition.y, ObjChildPosition.z);
+    }
 
-    camera.position.set(0, 0, 18);
+    for (let i = 0; i < 4; i ++) {
+      
+      ObjTypeMeshSur.sample(ObjChildPosition);
+      JsonChildPosition02.push(ObjChildPosition.x, ObjChildPosition.y, ObjChildPosition.z);
+    }
+
+    const pointsGeometry00 = new THREE.BufferGeometry();
+    pointsGeometry00.setAttribute('position', new THREE.Float32BufferAttribute(JsonChildPosition00, 4));       
+
+    const pointsGeometry01 = new THREE.BufferGeometry();
+    pointsGeometry01.setAttribute('position', new THREE.Float32BufferAttribute(JsonChildPosition01, 3));       
+
+    const pointsGeometry02 = new THREE.BufferGeometry();
+    pointsGeometry02.setAttribute('position', new THREE.Float32BufferAttribute(JsonChildPosition02, 3));    
+
+
+
+    const star = require('./asset/Star.png');  
+    const logoreact = require('./asset/logo512.png');                                          // SET MAR FOR POINT
+    const logodemo = require('./asset/datalogo/1.png');      
+    const starpic = new THREE.TextureLoader().load(star);                                    // SET MAR FOR POINT
+    const logodemopic = new THREE.TextureLoader().load(logodemo);
+    const logoreactpic = new THREE.TextureLoader().load(logoreact);
+
+   
+    const pointsMaterial00 = new THREE.PointsMaterial(
+      { map:starpic,size:0.25,transparent:true},
+    );
+    const pointsMaterial01 = new THREE.PointsMaterial(
+      { map:logoreactpic,size:5},
+    );
+    const pointsMaterial02 = new THREE.PointsMaterial(
+      { map:logodemopic,size:5},
+    );
+    const Points00 = new THREE.Points(pointsGeometry00, pointsMaterial00);
+    const Points01 = new THREE.Points(pointsGeometry01, pointsMaterial01);
+    const Points02 = new THREE.Points(pointsGeometry02, pointsMaterial02);
+    // ADD POINT TO GROUP
+    group.add(Points01,Points02,Points00);  */
+   
+    
+    // ADD GROUP TO SECNE
+    scene.add(ObjType);
+  
+    scene.add(light);
+
+    camera.position.set(0, 0, 20);      // CAMERA SETTING POSITION
 
     // MOVE
-    var update = function() {
-       //Just for fun
-      group.rotation.x += 0.001;
-      group.rotation.y += 0.0005;
+    var FunctMove = function() {
+       ObjType.rotation.x += 0.0005;
+       ObjType.rotation.y += 0.0005;
     };
 
     // RENDER
-    var render = function() {
+    var RenderSceneAndCamera = function() {
       renderer.render(scene, camera);
     };
 
-    //run gameloop (update, render, repeat)
-    var GameLoop = function() {
-      requestAnimationFrame(GameLoop);
-      update();
-      render();
+    // TASK FUNCTION 
+    var ActionThreeJs = function() {
+      requestAnimationFrame(ActionThreeJs);
+      FunctMove();
+      RenderSceneAndCamera();
     };
 
-    GameLoop();
+    ActionThreeJs();
 // SCENE BACKGOURND
-scene.background = new THREE.Color( 'lightblue' );
+scene.background = new THREE.Color( 'black' );
 
 
 // orbit control:
