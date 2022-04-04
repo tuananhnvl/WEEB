@@ -43,7 +43,10 @@ function FormLog() {
         .catch(error => console.log(error));
         }
     }
-
+    const RESETMAIN = () => {
+        console.log('sdjfhg');
+        window.location.reload();
+    }
     return (
         <div >
             <div className="login-root">
@@ -140,7 +143,10 @@ function FormLog() {
                 </div>
                 }
                 {!isLoading && (
+                    <>
                     <h1>HGeloo cus</h1>
+                    <button onClick={RESETMAIN} style={{height:'50px', width:'100px',marginLeft:' 123px' }}>LOG OUT !!</button>
+                    </>
                 )}
                 </>
             )}
