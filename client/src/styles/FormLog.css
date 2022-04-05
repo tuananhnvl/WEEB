@@ -1,8 +1,8 @@
 .login-root {
     background: #fff;
-    display: flex;
+   
     width: 100%;
-    height: 88vh;
+    height: 88vh; 
     overflow: hidden;
 }
 .loginbackground {

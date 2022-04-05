@@ -3,7 +3,20 @@ import axios from 'axios';
 
 import '../styles/FormLog.css';
 
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
 
 function FormLog() {
     const [usernameReg, setusenameReg] = useState("");
@@ -11,8 +24,10 @@ function FormLog() {
     const [tokenclient, settokenclient] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [LoadingMain, setLoadingMain] = useState(true);
-
-    const LOGIN = async (e) => {
+    const [Items, setItems] = useState([]);
+    const [UserDasboard, setUserDasboard] = useState("");
+    
+    const LOGIN = async(e) => {
         e.preventDefault();
      
         const AUTHINFO = await axios.post('/api/login', {
@@ -20,35 +35,46 @@ function FormLog() {
             password: passwordReg
         })
         .then(res => {
-            console.log(`${res.data}`);
+            //console.log(`${res.data}`);
+            console.log('Đã nhận TOKEN');
             const TOKEN = res.data;
+            setUserDasboard(usernameReg);
             return TOKEN
         })
         .catch(error => { console.log(error) })
         // console.log(`Đây là token nè : ${AUTHINFO}`);
         if (AUTHINFO == 'sd234r2r') {
-        axios.get('/api/member')
+        const DATAINFO = await axios.get('/api/member')
         .then(res => {
         // console.log(`Đây là nội dung trả về từ axios 2 : bên dưới vvv`);
-        console.log(res.data)
+        const items = res.data;
+        const hsder5 = items.items;
         setLoadingMain(false);
-        const timer01 = setTimeout(() => {setLoadingMain(false);}, 700);
-      
-
+        setTimeout(() => {setLoadingMain(false);}, 700);
         setIsLoading(true);
-        const timer = setTimeout(() => {setIsLoading(false);}, 700);
-        return () => clearTimeout(timer,timer01);
+        setTimeout(() => {setIsLoading(false);}, 700); 
+
+        return hsder5
 
         })
         .catch(error => console.log(error));
+      
+        console.log('Get data form server ....')
+        setItems(DATAINFO);
+        const itemData = JSON.stringify(DATAINFO);
+        console.log(itemData);
+        return itemData
         }
+      
+        
     }
     const RESETMAIN = () => {
-        console.log('sdjfhg');
         window.location.reload();
     }
     return (
+        
         <div >
+            
             <div className="login-root">
             {LoadingMain &&
                 <div className="box-root flex-flex flex-direction--column" style={{ margin: 'auto'}}>
@@ -56,7 +82,7 @@ function FormLog() {
                     <div className="box-root padding-top--24 flex-flex flex-direction--column">
                         <div className="box-root padding-bottom--24 flex-flex flex-justifyContent--center">
                             <h1>Trang đăng nhập</h1>
-
+                            
                         </div>
                         <div>{tokenclient}</div>
                         <div className="formbg-outer">
@@ -144,8 +170,47 @@ function FormLog() {
                 }
                 {!isLoading && (
                     <>
-                    <h1>HGeloo cus</h1>
-                    <button onClick={RESETMAIN} style={{height:'50px', width:'100px',marginLeft:' 123px' }}>LOG OUT !!</button>
+                    <div style={{display:'flex',width:'800px',margin:'0 auto'}}>
+                    <p style={{fontSize:'1.7rem'}}>Data của Username : <strong>{UserDasboard}</strong></p>
+                    <Button variant="outlined"  onClick={RESETMAIN} style={{height:'50px', width:'fit-content',margin:' auto' }}>LOG OUT !!</Button>
+                    </div>
+                    
+                 
+                 
+                    <div style={{maxWidth:'1200px',margin:'0 auto'}}>
+                       <TableContainer component={Paper} >
+                        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                            <TableHead>
+                            <TableRow>
+                                <TableCell align="left">ID</TableCell>
+                                <TableCell align="left">Danh sách phim</TableCell>
+                                <TableCell align="left">Danh sách bạn bè</TableCell>
+                                <TableCell align="left">Thông tin thêm</TableCell>
+                                <TableCell align="left">Tuỳ chỉnh</TableCell>
+                            </TableRow>
+                            </TableHead>
+                            <TableBody>
+                            {Items.map(item => (
+                                <TableRow>
+                                <TableCell align="left">{item.id}</TableCell>
+                                <TableCell align="left">{item.flimlist}</TableCell>
+                                <TableCell align="left">{item.listfriends}</TableCell>
+                                <TableCell align="left">{item.moreinfo}</TableCell>
+                                <TableCell align="left">
+                                    <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                                        <Button variant="outlined" >Chỉnh sửa</Button>
+                                        <Button >Xoá</Button>
+                                    </ButtonGroup>
+                                </TableCell>
+                                </TableRow>
+                            ))}
+                            </TableBody>
+                        </Table>
+                        </TableContainer>
+                    </div>
+                    
+          
+                   
                     </>
                 )}
                 </>
