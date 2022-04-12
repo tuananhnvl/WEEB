@@ -13,10 +13,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
 
 function FormLog() {
     const [usernameReg, setusenameReg] = useState("");
@@ -125,9 +121,9 @@ function FormLog() {
                                             >Đăng nhập</button>
                                         </div>
                                         <div style={{ display: 'flex' }}>
-                                            <a className="ssolink">Đăng nhập bằng GOogle</a>
-                                            <a className="ssolink">Đăng nhập bằng Zalo</a>
-                                            <a className="ssolink">Đăng nhập bằng FaceBook</a>
+                                            <div className="ssolink">Đăng nhập bằng GOogle</div>
+                                            <div className="ssolink">Đăng nhập bằng Zalo</div>
+                                            <div className="ssolink">Đăng nhập bằng FaceBook</div>
                                         </div>
                                     </form>
                                 </div>
@@ -135,9 +131,9 @@ function FormLog() {
                             <div className="footer-link padding-top--24">
                                 <span>Bạn chưa có tài khoản ?  <a href="">Tạo tài khoản ngay!</a></span>
                                 <div className="listing padding-top--24 padding-bottom--24 flex-flex center-center">
-                                    <span><a href="#">© WeeBCompany</a></span>
-                                    <span><a href="#">Liên hệ</a></span>
-                                    <span><a href="#">Chính sách & Quyền riêng tư</a></span>
+                                    <span><div>© WeeBCompany</div></span>
+                                    <span><div>Liên hệ</div></span>
+                                    <span><div>Chính sách & Quyền riêng tư</div></span>
                                 </div>
                             </div>
                         </div>

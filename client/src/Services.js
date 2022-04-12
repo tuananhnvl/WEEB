@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import 'react-loading-skeleton/dist/skeleton.css'
 import BtnSeeMore from './component/BtnSeeMore'
 import Skeleton from "react-loading-skeleton";
+
+import Page404 from './Page404'
 function Services() {
     const [loading, setLoading] = useState(true);
     const [loading1, setLoading1] = useState(true);
@@ -61,6 +63,7 @@ function Services() {
         <br/><br/>
             MẪU HOVER HEADING
             <BtnSeeMore/>
+            <Page404 />
         </>
 
     );

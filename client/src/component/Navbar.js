@@ -13,6 +13,8 @@ import ServicesSEO from "../ServicesSEO";
 import ServicesDesignWeb from "../ServicesDesignWeb";
 import Home from "../Home";
 import FormLog from "./FormLog";
+import KhoGiaoDien from "../KhoGiaoDien";
+import PreviewTemplate from "../PreviewTemplate";
 /* import icon */
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -164,11 +166,11 @@ function Navbar() {
                   <ul className="ListItemMenu">
                     <li>
                       <Link
-                        to="/"
+                        to="/KhoGiaoDien"
                         
                         className="ItemMenu RollingText"
                       >
-                        Trang chủ
+                        Kho Giao diện
                       </Link>
                     </li>
                     <li>
@@ -284,6 +286,7 @@ function Navbar() {
 
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route path="/KhoGiaoDien" element={<KhoGiaoDien />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/ServicesDesignBrand" element={<ServicesDesignBrand />} />
@@ -291,6 +294,7 @@ function Navbar() {
         <Route path="/ServicesSEO" element={<ServicesSEO />} />
         <Route path="/Project" element={<Project />} />
         <Route path="/FormLog" element={<FormLog />} />
+        <Route path="/PreviewTemplate" element={<PreviewTemplate />} />
       </Routes>
     </BrowserRouter>
   );
